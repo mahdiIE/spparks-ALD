@@ -30,8 +30,9 @@ output.o: output.cpp /usr/include/stdc-predef.h ../STUBS/mpi.h \
  /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdarg.h \
  /usr/include/bits/sys_errlist.h /usr/include/bits/stdio.h style_dump.h \
  dump_image.h dump_text.h dump.h dump_sites.h dump_vtk.h style_diag.h \
- diag_array.h diag.h diag_cluster.h /usr/include/c++/4.8.2/stack \
- /usr/include/c++/4.8.2/deque /usr/include/c++/4.8.2/bits/stl_algobase.h \
+ diag_ald.h diag.h diag_array.h diag_cluster.h \
+ /usr/include/c++/4.8.2/stack /usr/include/c++/4.8.2/deque \
+ /usr/include/c++/4.8.2/bits/stl_algobase.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/os_defines.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/cpu_defines.h \

@@ -11,7 +11,7 @@
    See the README file in the top-level SPPARKS directory.
 ------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------
-   ALD application of HfO2 was developed by 
+   ALD application of HfO2 was developed by:
    mahdi shirazi: m.shirazi@tue.nl, TU/e department of applied physics,
    Simon D. Elliott: simon.elliott@schrodinger.com, Schrodinger Materials Science.
    This application is a part of SPPARKS and authors retian the above term.

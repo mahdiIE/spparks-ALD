@@ -1,0 +1,259 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage{cite}
+\setlength{\parindent}{0cm}
+
+
+% Title Page
+\title{ALD application}
+\author{Mahdi Shirazi, Simon Elliott}
+
+
+\begin{document}
+\maketitle
+
+\textbf{Syntax:}
+\newline
+  \emph{app$_-$style ald}
+
+  \begin{itemize}
+
+  \item \emph{ald=style name of this application}
+
+  \end{itemize}
+
+\textbf{Examples:}
+\newline
+  \emph{app$_-$style ald}
+\newline
+
+\textbf{Description:}
+\newline
+This application simulates the chemical reaction of atomic layer deposition (ALD) on a crystalline hafnium oxide lattice.
+This application reads in all lattice sites via the read$_-$sites command.
+
+This application stores 2 integers per lattice site. The first integer (i1) is the element on the site:
+
+\begin{itemize}
+
+  \item \emph{element=1=O}
+  \item \emph{element=2=OH}
+  \item \emph{element=3=HfX4O (adsorbed precursor and X shows amide group)}
+  \item \emph{...}
+
+\end{itemize}
+
+The second integer (i2) is the 'coordination' of the site.
+
+The 3$_-$fold lattice should be created using the read$_-$sites, which gives details of its geometry, initial value, and neighbor connectivity.
+The 3$_-$fold lattice is initialized by low coordinated \ce{O} and \ce{OH} as substrate.
+The remainder are vacant.
+
+The event command is used to define what kinds of diffusion, dissociation, and densification occur in the model.
+The relative probability of each event is computed as a function of the rate, coordination number, and time specified in the event command.
+The details explained in the event command.
+Temperature is specified by the temperature command. 
+
+This application includes the interaction between the remaining precursor (steric effect) and influence of remaining fragments on adsorption sties (blocking).
+This is implemented using the neighbor list (see read$_-$sites).
+
+This application can be evolved only by a kinetic Monte Carlo (KMC). You must thus define a KMC solver to be used with the application via the solve$_-$style command.
+\newline
+
+\textbf{Restrictions:}
+\newline
+
+This application can only be run in serial simulations, not parallel. 
+%In serial, it can not be used with multiple sectors, only one sector.
+\newline
+
+\textbf{event command:}
+\newline
+
+\emph{event type old1 new1 old2 new2 A n E coord pressureOn expression}
+
+\begin{itemize}
+
+  \item \emph{type=1,2,3}
+  \item \emph{old1,old2=chemical species before reaction occurring}
+  \item \emph{new1,new2=chemical species after reaction occurring}
+  \item \emph{A= pre-factor or rate of adsorption}
+  \item \emph{n=exponential factor in Arrhenius equation}
+  \item \emph{E=activation energy}
+  \item \emph{coord=c.n. of the first lattice site} 
+  \item \emph{pressureOn=0,1,2}
+  \item \emph{expression=details of reaction}
+
+\end{itemize}
+
+\textbf{Examples:}
+\newline
+
+{\footnotesize{\emph{event   1       O               HfX4O            44879.2084             0       0.00    1       1       HfX4(g)+O(s)$\to$HfX4...O(s)
+\newline
+event   1       HfX4O           O               1.042296E13             0       1.00    2       0       HfX4(g)+O(s)$\to$HfX4...O(s)
+\newline
+event   1       HfH2X2          HfHX            1.042296E13             0       0.80    4       0       HfH2X2$\to$HfHX
+\newline
+event   1       HfH2X2          HfHX            1.042296E13             0       0.30    5       0       HfH2X2$\to$HfHX
+\newline
+event   2       O               OH              OH              O               1.042296E13             0       0.46    1       0       O$\to$OH
+\newline
+event   2       O               OH              OH              O               1.042296E13             0       0.75    2       0       O$\to$OH
+\newline
+event   2       HfX4O           HfX4OH          OH              O               1.042296E13             0       0.75    2       0       HfX4...O+OH$\to$HfX4...OH+O
+\newline
+event   2       HfX4OH          HfX4O           O               OH              1.042296E13             0       0.75    2       0               same
+\newline
+event   3       HfX2O           O               VAC             HfX2            1.042296E13             0       0.20    0       0       HfX2...O+VAC$\to$O+HfX2
+\newline
+event   3       HfX2OH          OH              VAC             HfX2            1.042296E13             0       0.20    0       0       HfX2...OH+VAC$\to$HfX2+OH
+\newline
+event   3       OH2HfX          HfX             VAC             OH2             1.042296E13             0       0.30    4       0       OH2HfX+VAC$\to$HfX+OH
+\newline
+event   3       OH2HfX          HfX             VAC             OH2             1.042296E13             0       0.30    5       0       OH2HfX+VAC$\to$HfX+OH
+\newline}}}
+
+
+\textbf{Description:}
+\newline
+
+This command defines an event for the "app$_-$style ald" application. 
+It can be an event involving one or two lattice sites, as specified by \emph{type}. 
+The \emph{type} 1 only changes the species of a site. 
+The \emph{type} 2 and 3 change the species of a site and its second and first neighbor site respectively. 
+App$_-$style ald operates on a 3-fold lattice which contains monoclinic hafnium oxide sites.
+The chemical species in a site and its neighboring site specify the event. 
+If \emph{type} = 1, then only \emph{old1} and \emph{new1} are specified. 
+If \emph{type} = 2 or 3, then \emph{old1, new1, old2,} and \emph{new2} are specified.
+The chemical specify what atoms or fragment must be on those sites in order for the event to potentially take place. 
+The possible atoms and fragment are specified in in.ald file. 
+\newline
+
+For the adsorption events, \emph{A} shows the rate given by Maxwell-Boltzmann statistics,
+while For the other events \emph{A} shows the pre-factor.
+\newline
+
+\emph{n} corresponds to 0 the original Arrhenius equation below.
+\newline
+
+\emph{E} shows activation energy and the rate setting determines the relative rate at which the event will occur. 
+\newline
+
+\emph{coord} shows c.n. of species in the first site.
+E.g. in the first example above, an adsorption of precursor must be on an oxygen species with c.n.=1 for the event to be possible.
+\newline
+
+In ALD simulation, the respective adsorption reactions are turned on and off as simulation time advances. 
+Adsorption reactions of the two precursors occur alternately as time progresses. 
+\emph{pressureOn} = 0 shows that the reaction is possible all simulation time.
+Similarly, 1 and 2 show metal pulse and oxygen pulse respectively.
+This option also used to filter out wasteful events.
+\newline
+
+\emph{rate = A(T/T$_0$)$^n$exp(-E/kT)}
+\newline
+
+Where T is the temperature you have specified.
+In this case the rate setting should be in the energy units defined by the application's Hamiltonian and should be
+consistent with the units used in the temperature command.
+\newline
+
+\textbf{Pulse and purge time command:}
+\newline
+
+\textbf{Syntax:}
+\newline
+  \emph{pulse$_-$time T1 T3}
+\newline
+  \emph{purge$_-$time T2 T4}
+
+  \begin{itemize}
+
+  \item \emph{T1=time for the metal pulse}
+  \item \emph{T2=time for the first purge}
+  \item \emph{T3=time for the oxygen pulse}
+  \item \emph{T4=time for the second purge}
+
+  \end{itemize}
+
+\textbf{Example:}
+
+\emph{pulse$_-$time              0.0001  0.0001 
+\newline
+purge$_-$time              0.0001  0.0001} 
+\newline
+
+\textbf{Description:}
+\newline
+
+These commands set time for pulse and purge of a cycle in ald application.
+In the ALD process, gaseous precursors are admitted to the reactor in alternate
+pulses separated by periods of purging. To implement this in KMC, the respective
+adsorption reactions are turned on and off as simulation time advances. 
+Adsorption reactions of the two precursors occur alternately as time progresses. 
+During the purge, no adsorption reaction is allowed.
+
+\textbf{Diag$_-$style ald command:}
+\newline
+
+\textbf{Syntax:}
+\newline
+\emph{diag$_-$style ald keyword value keyword value ...}
+
+  \begin{itemize}
+
+  \item \emph{ald=style name of this diagnostic}
+  \item \emph{zero or more keyword/value pairs may be appended}
+  \item \emph{see the diag$_-$style command for additional keyword/value pairs that can be appended to a diagnostic command
+             and which must appear before these keywords}
+  \item \emph{keyword=list}
+  \item \emph{list values = events or O or OH or HfX4O or ... or s1 or d1 or v1 or ...
+             \newline
+             O, OH, HfX4O = counts of how many lattice sites of this type exist
+             \newline
+             events = total \# of events for all sites
+             \newline
+             sN,dN,vN = cumulative \# of events for this reaction that have occurred.}
+
+  \end{itemize}
+
+\textbf{Examples:}
+\newline
+\emph{diag$_-$style ald keyword yes list events  O OH Hf HfX4O HfHX4O HfH2X4O HfH3X4O HfH4X4O s78 v18}
+
+\textbf{Description:}
+\newline
+
+The ald diagnostic prints out statistics about the system being modeled by app$_-$style ald.
+The values will be printed as part of stats output and it can be in any order.
+
+The O, OH, HfX4O and ... values will print counts of the number of chemical species of sites.
+The events value will print the total \# of possible events that can occur as defined by the event command,
+given the current state of the lattice, summed over all sites.
+
+The sN, dN, and vN values refer to a specific events that have occurred, as defined by the event command.
+The letter 's' means reactions involving a single site, 'd' means reactions involving a site and its second neighbor, 
+and 'v' means reactions involving a site and its first neighbor.
+The N refers to which reaction (from 1 to the number of the type of reaction).
+For instance, 'v18' means the 18$^{th}$ of type III reaction defined in your input script.
+
+\textbf{Restrictions:}
+\newline
+
+This command can only be used as part of the app$_-$style ald application.
+
+%\textbf{Related commands:}
+%\newline
+%
+%diag$_-$style, stats
+
+\bibliography{citations}
+\bibliographystyle{plain}
+
+\end{document}          

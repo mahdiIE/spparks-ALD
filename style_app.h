@@ -1,4 +1,5 @@
 #include "app_ald.h"
+#include "app_ald_zno.h"
 #include "app_chemistry.h"
 #include "app_diffusion.h"
 #include "app_erbium.h"

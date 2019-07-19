@@ -61,9 +61,9 @@ input.o: input.cpp /usr/include/stdc-predef.h ../STUBS/mpi.h \
  /usr/include/c++/4.8.2/initializer_list \
  /usr/include/c++/4.8.2/bits/range_access.h \
  /usr/include/c++/4.8.2/bits/deque.tcc \
- /usr/include/c++/4.8.2/bits/stl_stack.h app_chemistry.h app_diffusion.h \
- app_erbium.h app_ising.h app_ising_single.h app_membrane.h \
- app_potts_additive.h app_potts.h am_raster.h \
+ /usr/include/c++/4.8.2/bits/stl_stack.h app_ald_zno.h app_chemistry.h \
+ app_diffusion.h app_erbium.h app_ising.h app_ising_single.h \
+ app_membrane.h app_potts_additive.h app_potts.h am_raster.h \
  /usr/include/c++/4.8.2/iostream /usr/include/c++/4.8.2/ostream \
  /usr/include/c++/4.8.2/ios /usr/include/c++/4.8.2/iosfwd \
  /usr/include/c++/4.8.2/bits/stringfwd.h \
@@ -123,8 +123,8 @@ input.o: input.cpp /usr/include/stdc-predef.h ../STUBS/mpi.h \
  app_potts_weld.h random_park.h pool_shape.h app_potts_weld_jom.h \
  app_relax.h app_off_lattice.h app_sinter.h app_sos.h app_test_group.h \
  style_command.h create_box.h create_sites.h read_sites.h set.h shell.h \
- style_diag.h diag_ald.h diag.h diag_array.h diag_cluster.h \
- diag_diffusion.h diag_energy.h diag_erbium.h diag_propensity.h \
- diag_sinter_density.h diag_sinter_free_energy.h \
+ style_diag.h diag_ald.h diag.h diag_ald_zno.h diag_array.h \
+ diag_cluster.h diag_diffusion.h diag_energy.h diag_erbium.h \
+ diag_propensity.h diag_sinter_density.h diag_sinter_free_energy.h \
  diag_sinter_free_energy_pore.h style_solve.h solve_group.h \
  solve_linear.h solve_tree.h

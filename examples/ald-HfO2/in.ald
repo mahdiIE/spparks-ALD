@@ -288,8 +288,8 @@ event	3	HfHX2O		O		VAC		HfHX2		1.042296E13		0	0.20	0	0	HfHX2...O+VAC->O+HfHX2_22
 event	3	HfHX2OH		OH		VAC		HfHX2		1.042296E13		0	0.20	0	0	HfHX2...O+VAC->O+HfHX2_22072012
 event	3	HfH2X2O		O		VAC		HfH2X2		1.042296E13		0	0.20	0	0	HfH2X2...O+VAC->O+HfH2X2_22072012
 event	3	HfH2X2OH	OH		VAC		HfH2X2		1.042296E13		0	0.20	0	0	HfH2X2...OH+VAC->OH+HfH2X2_24_22072012
-event	3	HfH4X4O		O		VAC		HfH2X2		1.042296E13		0	0.20	2	0	HfH4X4...O+VAC->O+HfH2X2_22072012
-event	3	HfH4X4OH	OH		VAC		HfH2X2		1.042296E13		0	0.20	2	0	HfH4X4...OH+VAC->OH+HfH2X2_24_22072012
+event	3	HfH4X4O		O		VAC		HfH2X2		1.042296E13		0	0.20	0	0	HfH4X4...O+VAC->O+HfH2X2_22072012
+event	3	HfH4X4OH	OH		VAC		HfH2X2		1.042296E13		0	0.20	0	0	HfH4X4...OH+VAC->OH+HfH2X2_24_22072012
                                                                                  
 #Hf reverse densification(for 3 and 4 coordinated HfX2) it may become wasteful event and then it sucks simulation 
 event	3	HfH2X2		VAC		O		HfH2X2O		1.042296E13		0	0.50	4	1	HfX2...O+VAC->O+HfX2_18072012
@@ -340,8 +340,8 @@ temperature	0.0475116
 #O OH HfHX HfX Hf 
 #O OH OH2Hf OHHfHX OH2HfHX OH2HfX OH2  
 
-diag_style      ald stats yes list events  O OH Hf HfX4O HfHX4O HfH2X4O HfH3X4O HfH4X4O HfX4OH HfHX4OH HfH2X4OH HfH3X4OH HfH4X4OH OH2 
+diag_style      ald stats yes list events O OH HfHX HfX Hf 
 stats           .000005
 dump            1 text .0001 dump.ald  id i1 i2 x y z
 
-run             0.0004
+run             0.004

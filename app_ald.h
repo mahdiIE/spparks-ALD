@@ -23,10 +23,12 @@ AppStyle(ald,AppAld)
 
 #else
 
-#ifndef SPK_APP_ALD
-#define SPK_APP_ALD
+#ifndef SPK_APP_ALD_H
+#define SPK_APP_ALD_H
 
 #include "app_lattice.h"
+
+
 
 namespace SPPARKS_NS {
 

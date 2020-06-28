@@ -10,8 +10,9 @@
 
    See the README file in the top-level SPPARKS directory.
 ------------------------------------------------------------------------- */
+
 /* ----------------------------------------------------------------------
-   ALD application of HfO2 was developed by:
+   ALD application of HfO2 was developed by 
    mahdi shirazi: m.shirazi@tue.nl, TU/e department of applied physics,
    Simon D. Elliott: simon.elliott@schrodinger.com, Schrodinger Materials Science.
    This application is a part of SPPARKS and authors retian the above term.
@@ -914,20 +915,20 @@ void AppAld::grow_reactions(int rstyle)
 void AppAld::update_coord(int elcoord, int i, int j, int which)
 {
 	if ((elcoord == O || elcoord == OH) && (element[i] == HfX4O || element[i] == HfX4OH)) {
-		coord[i]=coord[i]+1;
+		coord[i]++;
 		put_mask(i);
 	}
 	else if ((elcoord == HfX4O || elcoord == HfX4OH) && (element[i] == O || element[i] == OH)){
-		coord[i]=coord[i]-1;
+		coord[i]--;
 		remove_mask(i);
 	}
 	else if ((elcoord == HfX2 || elcoord == HfHX2 || elcoord == HfH2X2) && (element[i] == HfX || element[i] == HfHX || element[i] == Hf)){
 		remove_mask(i);
-		coord[i]=coord[i]-1;
+		coord[i]--;
 		if (element[i] == Hf) coord[i]=coord[i]-1;
 	}
 	else if ((elcoord == HfX || elcoord == HfHX) && (element[i] == HfHX2 || element[i] == HfX2 || element[i] == HfH2X2)){
-		coord[i]=coord[i]+1;
+		coord[i]++;
 		put_mask(i);
 	}
 
@@ -977,13 +978,13 @@ void AppAld::update_coord(int elcoord, int i, int j, int which)
 		put_mask(j);
 	}
 	else if (elcoord == HfHX && element[i] == Hf){
-		coord[i]=coord[i]-1;
+		coord[i]--;
 	}
 	else if (elcoord == Hf && element[i] == HfHX){
-		coord[i]=coord[i]+1;
+		coord[i]++;
 	}
 	else if ((elcoord == OH2HfHX || elcoord == OH2HfX) && element[i] == OH2Hf){
-		coord[i]=coord[i]-1;
+		coord[i]--;
 	}
 
 	// densifiacation of water molecule
@@ -1170,8 +1171,8 @@ void AppAld::count_coord(int i, int j)
 	for (int s = 0; s < numneigh[j]; s++){
 		int nn = neighbor[j][s];
 		if (element[nn] == O || element[nn] == OH || element[nn] == OH2) {
-			coord[j]=coord[j]++;
-			if (i != nn) coord[nn]=coord[nn]++;
+			coord[j]++;
+			if (i != nn) coord[nn]++;
 		}
 	}
     }
@@ -1179,8 +1180,8 @@ void AppAld::count_coord(int i, int j)
 	for (int s = 0; s < numneigh[j]; s++){
 		int nn = neighbor[j][s];
 		if ( HfX2 <= element[nn] && element[nn] <= OHHfHX ) {
-			coord[j]=coord[j]++;
-			coord[nn]=coord[nn]++;
+			coord[j]++;
+			coord[nn]++;
 		}
 	}
     }
@@ -1188,8 +1189,8 @@ void AppAld::count_coord(int i, int j)
 	for (int s = 0; s < numneigh[i]; s++){
 		int nn = neighbor[i][s];
 		if ( HfX2 <= element[nn] && element[nn] <= OHHfHX ) {
-			coord[i]=coord[i]--;
-			coord[nn]=coord[nn]--;
+			coord[i]--;
+			coord[nn]--;
 		}
 	}
     }
@@ -1198,8 +1199,8 @@ void AppAld::count_coord(int i, int j)
 	for (int s = 0; s < numneigh[i]; s++){
 		int nn = neighbor[i][s];
 		if (element[nn] == O || element[nn] == OH || element[nn] == OH2) {
-			coord[i]=coord[i]--;
-			if (j != nn) coord[nn]=coord[nn]--;
+			coord[i]--;
+			if (j != nn) coord[nn]--;
 		}
 	}
     }

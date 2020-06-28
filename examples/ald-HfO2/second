@@ -1,0 +1,348 @@
+# SPPARKS ald list updated 10042012
+seed	       4323
+
+app_style   ald
+
+read_sites data.ald
+
+sector		no
+solve_style  linear
+
+#events Hf:Hafnium,O:Oxygen,X:Amide group,H:Hydrogen
+#events type 1: only change species of site
+#event	type	from		to		A			n	E(eV)	coord	pressureOn	reaction
+# adsorption of metal precursor_change_with_temp4
+event	1	O		HfX4O		 44879.2084     	0	0.00	1   	1	HfX4(g)+O(s)->HfX4...O(s)
+event	1	HfX4O		O		1.042296E13		0	1.00	2	0	HfX4(g)+O(s)->HfX4...O(s)from27032012
+event	1	OH		HfX4OH		 44879.2084             0	0.00	1	1	HfX4(g)+OH(s)->HfX4...OH(s)
+event	1	HfX4OH		OH		1.042296E13		0	1.00	2	0	same4from27032012
+                                                                                         
+#Hydrogen diffusion from oxygen to Ligand_bouncing14
+event	1	HfX4OH		HfHX4O		1.042296E13		0	1.35	2	0	HfX4...OH(s)->HfHX4...O(s)2308
+event   1       HfHX4O          HfX4OH          1.042296E13             0       1.76    2      	0	 same2308
+event	1	HfHX4OH		HfH2X4O		1.042296E13		0	1.35	2	0	HfHX4...OH->HfH2X4...O
+event	1	HfH2X4O		HfHX4OH		1.042296E13		0	1.76	2	0	same
+event	1	HfX3OH		HfHX3O		1.042296E13		0	1.35	2	0	HfX3...OH(s)->HfHX3...O(s)
+event	1	HfHX3O		HfX3OH		1.042296E13		0	1.76	2	0		same
+event	1	HfH2X4OH 	HfH3X4O 	1.042296E13		0	1.35	2	0	HfH2X4...OH(s)->HfH3X4...O(s)
+event	1	HfH3X4O 	HfH2X4OH 	1.042296E13		0	1.76	2	0		same_1808
+event	1	HfH2X3O  	HfHX3OH 	1.042296E13		0	1.35	2	0	HfH2X3...O(s)->HfHX3...OH(s)
+event	1	HfHX3OH  	HfH2X3O 	1.042296E13		0	1.76	2	0		same_1808
+event	1	HfH3X3O  	HfH2X3OH  	1.042296E13		0	1.35	2	0	HfH3X3...O(s)->HfH2X2...O(s)
+event	1	HfH2X3OH  	HfH3X3O  	1.042296E13		0	1.76	2	0		same_1808
+event	1	HfH3X4OH  	HfH4X4O  	1.042296E13		0	1.35	2	0	HfH3X4...OH(s)->HfH4X4...O(s)
+event	1	HfH4X4O  	HfH3X4OH  	1.042296E13		0	1.76	2	0		same18_1808
+
+#Ligand desorption
+
+# first desorption14
+event	1	HfHX4O		HfX3O		1.042296E13		0	0.89	2	0	HfHX4...O(s)->HfX3...O(s)21032012
+event	1	HfX3O		HfHX4O		1.042296E13		0	1.24	2	0	same21032012
+event	1	HfHX3O		HfX2O		1.042296E13		0	1.69	2	0	HfHX3...O(s)->HfX2...O(s)27032012
+event	1	HfX2O		HfHX3O		1.042296E13		0	2.87	2	0	same27032012
+event	1	HfHX4OH		HfX3OH		1.042296E13		0	0.89	2	0	HfHX4...OH(s)->HfX3...OH(s)21032012
+event	1	HfX3OH		HfHX4OH		1.042296E13		0	1.24	2	0		same21032012
+event	1	HfH2X4O		HfHX3O		1.042296E13		0	0.89	2	0	HfH2X4...O(s)->HfHX3...O(s)
+event	1	HfHX3O		HfH2X4O		1.042296E13		0	1.83	2	0		same
+event	1	HfH2X4OH 	HfHX3OH 	1.042296E13		0	0.89	2	0	HfH2X4...OH(s)->HfHX3...OH(s)
+event	1	HfHX3OH 	HfH2X4OH 	1.042296E13		0	1.83	2	0		same
+event	1	HfH3X4O  	HfH2X3O 	1.042296E13		0	0.39	2	0	HfH3X4...O(s)->HfH2X3...O(s)1608
+event	1	HfH2X3O  	HfH3X4O 	1.042296E13		0	0.83	2	0		same
+event	1	HfH3X4OH  	HfH2X3OH 	1.042296E13		0	0.39	2	0	HfH3X4...OH(s)->HfH2X3...OH(s)1608
+event	1	HfH2X3OH  	HfH3X4OH 	1.042296E13		0	0.83	2	0	same
+
+# second desorption16
+event	1	HfH2X3OH  	HfHX2OH 	1.042296E13		0	1.09	2	0	HfH2X3...OH->HfHX2..OH
+event	1	HfHX2OH  	HfH2X3OH 	1.042296E13		0	4.01	2	0	same
+event	1	HfH2X3O  	HfHX2O  	1.042296E13		0	1.09	2	0	HfH2X3...O(s)->HfHX2...O(s)
+event	1	HfHX2O  	HfH2X3O  	1.042296E13		0	4.01	2	0		same
+
+event	1	HfH4X4O  	HfH3X3O  	1.042296E13		0	0.70	2	0	HfH4X4...O(s)->HfH3X3...O(s)Idonotknow
+event	1	HfH3X3O  	HfH4X4O  	1.042296E13		0	2.82	2	0		sameIdonotknow
+event	1	HfH4X4OH  	HfH3X3OH  	1.042296E13		0	0.70	2	0	HfH4X4...OH(s)->HfH3X3..OH(s)Idonotknow
+event	1	HfH3X3OH  	HfH4X4OH  	1.042296E13		0	2.82	2	0		sameIdonotknow
+
+event	1	HfHX3OH		HfX2OH		1.042296E13		0	1.69	0	0	HfHX3...OH->HfX2...OH
+event	1	HfX2OH		HfHX3OH		1.042296E13		0	2.87	0	0		same
+event	1	HfHX3O 		HfX2O 		1.042296E13		0	1.69	0	0	HfHX3...OH->HfX2...OH
+event	1	HfX2O 		HfHX3O 		1.042296E13		0	2.87	0	0		same
+
+event	1	HfH3X3OH	HfH2X2OH	1.042296E13		0	1.07	0	0	HfH3X3...OH->HfH2X2...OH
+event	1	HfH2X2OH	HfH3X3OH	1.042296E13		0	3.99	0	0		same
+event	1	HfH3X3O  	HfH2X2O  	1.042296E13		0	1.07	2	0	HfH3X3...O(s)->HfH2X2...O(s)change1608
+event	1	HfH2X2O  	HfH3X3O  	1.042296E13		0	3.99	2	0		same
+
+# third desorption29
+event	1	HfH2X2  	HfHX	  	1.042296E13		0	0.80	4	0	HfH2X2->HfHX18072012
+event	1	HfH2X2  	HfHX	  	1.042296E13		0	0.30	5	0	HfH2X2->HfHX18072012
+event	1	HfH2X2  	HfHX	  	1.042296E13		0	0.30	6	0	HfH2X2->HfHX18072012
+event	1	HfH2X2  	HfHX	  	1.042296E13		0	0.30	7	0	HfH2X2->Hf1608
+event	1	HfH2X2  	HfHX	  	1.042296E13		0	0.25	8	0	HfH2X2->Hf16062011_1808
+event	1	HfH2X2  	Hf	  	1.042296E13		0	0.20	9	0	HfH2X2->Hf16062011_1808
+#event	1	HfHX  		HfH2X2	  	1.042296E13		0	1.10	0	0	same(ideally_it_does_not_happen)50	
+
+event	1	HfHX2		HfX		1.042296E13		0	0.89	5	0	HfHX2(d)->Hf18072012
+event	1	HfHX2		HfX		1.042296E13		0	0.89	6	0	HfHX2(d)->HfX(d)
+event	1	HfHX2		HfX		1.042296E13		0	0.80	7	0	HfHX2(d)->HfX(d)23072012
+event	1	HfHX2		HfX		1.042296E13		0	0.80	8	0	HfHX2(d)->HfX(d)23072012
+event	1	HfHX2		HfHX		1.042296E13		0	1.68	5	0	HfHX2(d)->HfX(d)1608
+event	1	HfX		HfHX2		1.042296E13		0	1.92	5	0	same(ideally_it_does_not_happen)
+event	1	HfX		HfHX2		1.042296E13		0	1.92	4	0	same(ideally_it_does_not_happen)
+event	1	HfX2		HfX		1.042296E13		0	0.90	7	0	HfX2->HfX	
+event	1	HfX		HfX2		1.042296E13		0	1.85	6	0		same
+event   1       HfHX            Hf              1.042296E13             0       1.64    0      	0	 HfHX(s)->Hf(s)  
+event   1       HfX             Hf              1.042296E13             0       0.64    7      	0	 HfHX(s)->Hf(s)23062011
+event   1       HfHX            Hf              1.042296E13             0       0.83    6      	0	 HfHX(s)->Hf(s)1806
+event   1       HfHX            Hf              1.042296E13             0       0.56    7      	0	 HfHX(s)->Hf(s)23062011_1806
+event	1	OH2HfHX	  	OH2Hf		1.042296E13		0	0.50   	7	0		same28062011
+event	1	OH2HfX	  	OH2Hf		1.042296E13		0	0.50   	7	0		same28062011
+event   1       Hf              HfHX            1.042296E13             0       0.62    3      	1         same58
+event   1       Hf              HfHX            1.042296E13             0       0.62    4      	1         same58
+event   1       Hf              HfHX            1.042296E13             0       0.62    5      	1         same58
+event   1       HfHX            Hf              1.042296E13             0       0.50    8      	0	 HfHX(s)->Hf(s)16072012
+event   1       HfX             Hf              1.042296E13             0       0.50    8      	0	 HfHX(s)->Hf(s)16072012
+# make site active in the list after densification(artificial)
+event	1	HfX2    	HfX	  	1.042296E13		0	2.00	0	0	HfX2->HfX22072012
+event	1	HfHX2    	HfX	  	1.042296E13		0	2.00	0	0	HfX2->HfX22072012
+event	1	HfH2X2    	HfHX	  	1.042296E13		0	2.00	0	0	HfX2->HfX22072012
+#event	1	HfH2X2    	HfHX	  	1.042296E13		0	0.20	0	0	HfX2->HfX23062020
+                                                                                         
+#event	type	from		to		from		to		A			n	E	coord	pressureOn	reaction
+#water decompostion 
+
+event   2       O               OH              OH2             OH              1.042296E13            0       0.40    1     	0 	OH2+O->OH+OH24082012
+event   2       O               OH              OH2             OH              1.042296E13            0       0.40    -9     	0 	OH2+O->OH+OH24082012
+event   2       O               OH              OH2             OH              1.042296E13            0       0.40    -19     	0 	OH2+O->OH+OH24082012
+event   2       O               OH              OH2             OH              1.042296E13            0       0.69    2     	0 	OH2+O->OH+OH24082012
+event   2       O               OH              OH2             OH              1.042296E13            0       0.69    -8     	0 	OH2+O->OH+OH24082012
+event   2       O               OH              OH2             OH              1.042296E13            0       0.69    -18     	0 	OH2+O->OH+OH24082012
+
+#proton diffusion through H2O
+
+#event   2       OH              OH2              OH2              OH             1.042296E13            0       0.50    1        0       OH+OH2->OH2+OH08092012
+#event   2       OH              OH2              OH2              OH             1.042296E13            0       0.50    -9       0       OH+OH2->OH2+OH08092012
+#event   2       OH              OH2              OH2              OH             1.042296E13            0       0.50    -19      0       OH+OH2->OH2+OH08092012
+
+#adsorption of water_change_with_temp19
+#water adsorption type II
+event	2	HfHX		OH2HfHX		HfHX		HfHX		2.154290E5		0	0.00	4	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	HfHX		OH2HfHX		HfHX		HfHX		2.154290E5		0	0.00	5	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	HfHX		OH2HfHX		HfHX		HfHX    	2.154290E5		0	0.00	6	2	HfX4...O+OH->HfHX4...O+O03072012
+
+event	2	OH2HfHX		HfHX		HfHX		HfHX		2.154290E5		0	0.00	4	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	OH2HfHX		HfHX		HfHX		HfHX		2.154290E5		0	0.00	5	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	OH2HfHX		HfHX		HfHX		HfHX    	2.154290E5		0	0.00	6	2	HfX4...O+OH->HfHX4...O+O03072012
+
+event	2	HfX		OH2HfX		HfX		HfX		2.154290E5		0	0.00	4	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	HfX		OH2HfX		HfX		HfX		2.154290E5		0	0.00	5	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	HfX		OH2HfX		HfX		HfX  	  	2.154290E5		0	0.00	6	2	HfX4...O+OH->HfHX4...O+O03072012
+
+event	2	OH2HfX		HfX		HfX		HfX		2.154290E5		0	0.00	4	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	OH2HfX		HfX		HfX		HfX		2.154290E5		0	0.00	5	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	OH2HfX		HfX		HfX		HfX    		2.154290E5		0	0.00	6	2	HfX4...O+OH->HfHX4...O+O03072012
+
+event	2	HfHX		OH2HfHX		HfX		HfX		2.154290E5		0	0.00	4	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	HfHX		OH2HfHX		HfX		HfX		2.154290E5		0	0.00	5	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	HfHX		OH2HfHX		HfX		HfX     	2.154290E5		0	0.00	6	2	HfX4...O+OH->HfHX4...O+O03072012
+
+event	2	OH2HfHX		HfHX		HfX		HfX		2.154290E5		0	0.00	4	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	OH2HfHX		HfHX		HfX		HfX		2.154290E5		0	0.00	5	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	OH2HfHX		HfHX		HfX		HfX     	2.154290E5		0	0.00	6	2	HfX4...O+OH->HfHX4...O+O03072012
+
+event	2	HfX		OH2HfX		HfHX		HfHX		2.154290E5		0	0.00	4	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	HfX		OH2HfX		HfHX		HfHX		2.154290E5		0	0.00	5	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	HfX		OH2HfX		HfHX		HfHX  	  	2.154290E5		0	0.00	6	2	HfX4...O+OH->HfHX4...O+O03072012
+
+event	2	OH2HfX		HfX		HfHX		HfHX		2.154290E5		0	0.00	4	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	OH2HfX		HfX		HfHX		HfHX		2.154290E5		0	0.00	5	2	HfX4...O+OH->HfHX4...O+O03072012
+event	2	OH2HfX		HfX		HfHX		HfHX   		2.154290E5		0	0.00	6	2	HfX4...O+OH->HfHX4...O+O03072012
+
+#water adsorption typeI 5
+event	1	Hf		OH2Hf		2.154290E5		0	0.00   	4	2	OH2Hf->Hf18102011	
+event	1	OH2Hf		Hf		2.154290E5		0	0.00   	4	2	same18102011
+event	1	Hf		OH2Hf		2.154290E5		0	0.00   	5	2	OH2Hf->Hf18102011	
+event	1	OH2Hf		Hf		2.154290E5		0	0.00   	5	2	same18102011
+event	1	Hf		OH2Hf		2.154290E5		0	0.00   	6	2	OH2Hf->Hf	
+
+#water desorption2
+event	1	OH2Hf		Hf		1.042296E13		0	0.46   	6	0	same
+event	1	OH2Hf		Hf		1.042296E13		0	0.83   	5	0	same
+#event	1	HfX		OHHfHX		3.046630E5		0	0.00   	0	2	HfX->OHHfHX
+#event	1	OHHfHX		HfX		3.046630E5		0	0.00   	0	2		same67
+                                                                                        
+
+
+
+#events type 2: change species of a site and second neighbour
+#event	type	from		to		from		to		A			n	E	coord	pressureOn	reaction
+#Hydrogen diffusion from oxygen to oxygen27
+event	2	O		OH		OH 		O		1.042296E13		0	0.46	1	0	O->OH1608
+event	2	O		OH		OH 		O		1.042296E13		0	0.75	2	0	O->OH1608
+event	2	O		OH		OH 		O		1.042296E13		0	0.46	-9	0	O->OH1608
+event	2	O		OH		OH 		O		1.042296E13		0	0.75	-8	0	O->OH1608
+event	2	O		OH		OH 		O		1.042296E13		0	0.46	-19	0	O->OH1608
+event	2	O		OH		OH 		O		1.042296E13		0	0.75	-18	0	O->OH1608
+event	2	O		OH		OH 		O		1.042296E13		0	0.46	-29	0	O->OH1608
+event	2	O		OH		OH 		O		1.042296E13		0	0.75	-28	0	O->OH1608
+event	2	O		OH		OH 		O		1.042296E13		0	0.95	3	0	O->OH30062011
+event	2	HfX4O		HfX4OH		OH		O		1.042296E13		0	0.75	2	0	HfX4...O+OH->HfX4...OH+O
+event	2	HfX4OH		HfX4O		O		OH		1.042296E13		0	0.75	2	0		same
+event	2	HfHX4O		HfHX4OH		OH		O		1.042296E13		0	0.75	2	0	HfHX4...O+OH->HfHX4...OH+O10
+event	2	HfHX4OH		HfHX4O		O		OH		1.042296E13		0	0.75	2	0		same
+event	2	HfH2X4O		HfH2X4OH	OH		O		1.042296E13		0	0.75	2	0	HfH2X4...O+OH->HfH2X4...OH+O	
+event	2	HfH2X4OH	HfH2X4O 	O		OH		1.042296E13		0	0.75	2	0	same
+event	2	HfH4X4O		HfH4X4OH	OH		O 		1.042296E13		0	0.75	2	0		same
+event	2	HfH4X4OH	HfH4X4O		O		OH 		1.042296E13		0	0.75	2	0	HfH4X4...OH+O->HfH4X4...O+OH
+event	2	HfH3X4O  	HfH3X4OH 	OH		O		1.042296E13		0	0.75	2 	0	HfH3X4...O+OH->HfH3X4...OH+O	
+event	2	HfH3X4OH  	HfH3X4O 	O		OH		1.042296E13		0	0.75	2 	0	same
+event	2	HfHX3O		HfHX3OH		OH		O		1.042296E13		0	0.75	2	0	HfHX3...O+OH->HfH2X3...O+O	
+event	2	HfHX3OH		HfHX3O		O		OH		1.042296E13		0	0.75	2	0		same
+event	2	HfX3O		HfX3OH		OH		O		1.042296E13		0	0.75	2	0	HfX3...O(s)->HfX3...OH(s)
+event	2	HfX3OH		HfX3O		O		OH		1.042296E13		0	0.75	2	0		same
+event	2	HfH2X3O		HfH2X3OH	OH		O 		1.042296E13		0	0.75	2	0	HfH2X3...O+OH->HfH2X3...OH+O	
+event	2	HfH2X3OH	HfH2X3O		O		OH 		1.042296E13		0	0.75	2	0		same
+event	2	HfH3X3O		HfH3X3OH	OH		O 		1.042296E13		0	0.75	2	0	HfH3X3...O+OH->HfH3X3...OH+O	
+event	2	HfH3X3OH	HfH3X3O		O		OH 		1.042296E13		0	0.75	2	0		same
+
+#Hydrogen diffusion from oxygen to Ligand (test rotation of protonated ligand in the case that adsorbate site is OH and O)16
+event	2	HfX4O		HfHX4O		OH		O		1.042296E13		0	0.51	2	0	HfX4...O+OH->HfHX4...O+O1608
+event	2	HfHX4O		HfX4O		O		OH		1.042296E13		0	0.64	2	0		same1608
+event	2	HfX4OH		HfHX4OH		OH		O		1.042296E13		0	0.51	2	0	HfX4...OH+OH->HfHX4...OH+O1608
+event	2	HfHX4OH		HfX4OH		O		OH		1.042296E13		0	0.64	2	0		same1608
+
+event	2	HfHX4O		HfH2X4O		OH		O		1.042296E13		0	0.59	2	0	HfHX4...O+OH->HfHX4...OH+O
+event	2	HfH2X4O		HfHX4O		O               OH		1.042296E13		0	0.76	2	0		same1608
+event	2	HfHX4OH		HfH2X4OH	OH		O		1.042296E13		0	0.59	2	0	HfHX4...OH+OH->HfH2X4...OH+O	
+event	2	HfH2X4OH	HfHX4OH	        O		OH		1.042296E13		0	0.76	2	0		same
+
+event	2	HfH3X4OH	HfH4X4OH	OH		O 		1.042296E13		0	0.42	2	0	HfH3X4...OH+OH->HfH4X4...OH+O
+event	2	HfH4X4OH	HfH3X4OH	O		OH 		1.042296E13		0	2.72	2	0		same
+event	2	HfH3X4O		HfH4X4O		OH		O		1.042296E13		0	0.42	2	0	HfH3X4...O+OH->HfH4X4...O+O20	
+event	2	HfH4X4O		HfH3X4O		O		OH		1.042296E13		0	2.72	2	0		same
+
+event	2	HfH2X4OH	HfH3X4OH	OH		O 		1.042296E13		0	0.49	2	0	HfH2X4...OH+OH->HfH3X4...OH+O	
+event	2	HfH3X4OH	HfH2X4OH	O		OH 		1.042296E13		0	0.81	2	0		same
+event	2	HfH2X4O		HfH3X4O		OH		O		1.042296E13		0	0.49	2	0	HfH2X4...O+OH->HfH3X4...O+O	
+event	2	HfH3X4O		HfH2X4O		O		OH		1.042296E13		0	0.81	2	0		same
+
+#these should change not accurate12
+event	2	HfX3O		HfHX3O		OH		O		1.042296E13		0	0.70	2	0	HfX3...O+OH->HfHX3...O+O30	
+event	2	HfHX3O		HfX3O		O		OH		1.042296E13		0	0.98	2	0		same
+event	2	HfX3OH		HfHX3OH		OH		O		1.042296E13		0	0.70	2	0	HfHX3...O+OH->HfH2X3...O+O	
+event	2	HfHX3OH		HfX3OH		O		OH		1.042296E13		0	0.98	2	0	same
+event	2	HfHX3OH		HfH2X3OH	OH		O		1.042296E13		0	0.70	2	0	HfHX3...OH+OH->HfH2X3...OH+O
+event	2	HfH2X3OH	HfHX3OH	 	O		OH		1.042296E13		0	0.98	2	0	same
+event	2	HfHX3O		HfH2X3O		OH		O		1.042296E13		0	0.70	2	0	HfHX3...O+OH->HfH2X3...O+O40
+event	2	HfH2X3O		HfHX3O		O		OH		1.042296E13		0	0.98	2	0		same
+
+event	2	HfH2X3O		HfH3X3O		OH		O 		1.042296E13		0	0.38	2	0	HfH2X3...O+OH->HfH3X3...O+O	
+event	2	HfH3X3O		HfH2X3O		O		OH 		1.042296E13		0	0.20	2	0		same.05cheating
+event	2	HfH2X3OH	HfH3X3OH	OH		O 		1.042296E13		0	0.38	2	0	HfH2X3...OH+OH->HfH3X3...OH+O
+event	2	HfH3X3OH	HfH2X3OH	O   		OH 		1.042296E13		0	0.20	2	0		same.05cheating
+                                                                                
+                                                                               
+#events type 3: change species of a site and first neighbour                    
+#event	type	from		to		from		to		A			n	E	coord	pressureOn	reaction
+#the water densification9                                                                                                     
+
+event	3	OH2HfX		HfX		VAC		OH2		1.042296E13		0	0.30	4	0	OH2HfX+VAC->HfX+OH21808
+event	3	OH2HfX		HfX		VAC		OH2		1.042296E13		0	0.30	5	0	OH2HfX+VAC->HfX+OH21808
+event	3	OH2HfX		HfX		VAC		OH2		1.042296E13		0	0.60	6	0	OH2HfX+VAC->HfX+OH21808
+
+event	3	OH2HfHX	  	HfHX		VAC		OH2		1.042296E13		0	0.30	4	0	OH2HfHX+VAC->HfHX+OH1808
+event	3	OH2HfHX	  	HfHX		VAC		OH2		1.042296E13		0	0.30	5	0	OH2HfHX+VAC->HfHX+OH1808
+event	3	OH2HfHX	  	HfHX		VAC		OH2		1.042296E13		0	0.60	6	0	OH2HfHX+VAC->HfHX+OH1808
+
+event	3	OH2Hf		Hf              VAC             OH2		1.042296E13		0	0.25	4	0	OH2Hf+VAC->Hf+OH218102011
+event	3	OH2Hf		Hf              VAC             OH2		1.042296E13		0	0.35	5	0	OH2Hf+VAC->Hf+OH218102011
+event	3	OH2Hf		Hf              VAC             OH2		1.042296E13		0	0.45	6	0	OH2Hf+VAC->Hf+OH2	
+
+#the reverse of water densification9
+
+event	3	OH2		VAC		HfHX	  	OH2HfHX		1.042296E13		0	0.46	1	0		same
+event	3	OH2		VAC		HfHX	  	OH2HfHX		1.042296E13		0	0.83	2	0		same
+event	3	OH2		VAC		HfHX	  	OH2HfHX		1.042296E13		0	1.20	3	0		same
+
+event	3	OH2		VAC		HfX		OH2HfX		1.042296E13		0	0.46	1	0		same
+event	3	OH2		VAC		HfX		OH2HfX		1.042296E13		0	0.83	2	0		same
+event	3	OH2		VAC		HfX		OH2HfX		1.042296E13		0	1.20	3	0		same
+
+event	3	OH2             VAC		Hf		OH2Hf           1.042296E13		0	0.46	1	0			same
+event	3	OH2             VAC		Hf		OH2Hf           1.042296E13		0	0.83	2	0			sam18102011
+event	3	OH2             VAC		Hf		OH2Hf           1.042296E13		0	1.20	3	0			sam18102011
+
+#Hydrogen diffusion from oxygen to Ligand6
+event	3	HfX2		HfHX2		OH		O		1.042296E13		0	0.91	0	0	HfX2+OH->HfHX2+O1608
+event	3	HfHX2		HfX2		O		OH		1.042296E13		0	1.25	6	0	same1608
+event   3       HfX             HfHX            OH              O               1.042296E13             0       0.70    0      	0	 HfX+OH->HfHX+O
+event   3       HfHX            HfX             O               OH              1.042296E13             0       1.28    0      	0                 same
+event	3	HfHX2		HfH2X2		OH		O		1.042296E13		0	0.88	0	0	HfHX2+OH->HfH2X2+O	
+event	3	HfH2X2		HfHX2		O		OH		1.042296E13		0	1.15	0	0		same6
+#                                                                                                                        
+#event	3	OHHfHX	  	HfHX		VAC		OH2		1.042296E13		0	0.10	0	0	OHHfHX+VAC->HfHX+OH
+#event	3	HfHX	  	OHHfHX		OH2		VAC		1.042296E13		0	0.68	0	0		sameforNowOH218
+
+#Hf densification 8                                                              
+event	3	HfX2O		O		VAC		HfX2		1.042296E13		0	0.20	0	0	HfX2...O+VAC->O+HfX2_22072012
+event	3	HfX2OH		OH		VAC		HfX2		1.042296E13		0	0.20	0	0	HfX2...OH+VAC->HfX2+OH_22072012
+event	3	HfHX2O		O		VAC		HfHX2		1.042296E13		0	0.20	0	0	HfHX2...O+VAC->O+HfHX2_22072012
+event	3	HfHX2OH		OH		VAC		HfHX2		1.042296E13		0	0.20	0	0	HfHX2...O+VAC->O+HfHX2_22072012
+event	3	HfH2X2O		O		VAC		HfH2X2		1.042296E13		0	0.20	0	0	HfH2X2...O+VAC->O+HfH2X2_22072012
+event	3	HfH2X2OH	OH		VAC		HfH2X2		1.042296E13		0	0.20	0	0	HfH2X2...OH+VAC->OH+HfH2X2_24_22072012
+event	3	HfH4X4O		O		VAC		HfH2X2		1.042296E13		0	0.20	0	0	HfH4X4...O+VAC->O+HfH2X2_22072012
+event	3	HfH4X4OH	OH		VAC		HfH2X2		1.042296E13		0	0.20	0	0	HfH4X4...OH+VAC->OH+HfH2X2_24_22072012
+                                                                                 
+#Hf reverse densification(for 3 and 4 coordinated HfX2) it may become wasteful event and then it sucks simulation 
+event	3	HfH2X2		VAC		O		HfH2X2O		1.042296E13		0	0.50	4	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfH2X2		VAC		O		HfH2X2O		1.042296E13		0	0.40	3	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfH2X2		VAC		OH		HfH2X2OH	1.042296E13		0	0.50	4	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfH2X2		VAC		OH		HfH2X2OH	1.042296E13		0	0.40	3	1	HfX2...O+VAC->O+HfX2_18072012
+
+event	3	HfHX2		VAC		O		HfHX2O		1.042296E13		0	0.50	4	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfHX2		VAC		O		HfHX2O		1.042296E13		0	0.40	3	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfHX2		VAC		OH		HfHX2OH 	1.042296E13		0	0.50	4	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfHX2		VAC		OH		HfHX2OH 	1.042296E13		0	0.40	3	1	HfX2...O+VAC->O+HfX2_18072012
+
+event	3	HfX2		VAC		O		HfX2O		1.042296E13		0	0.50	4	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfX2		VAC		O		HfX2O		1.042296E13		0	0.40	3	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfX2		VAC		OH		HfX2OH  	1.042296E13		0	0.50	4	1	HfX2...O+VAC->O+HfX2_18072012
+event	3	HfX2		VAC		OH		HfX2OH  	1.042296E13		0	0.40	3	1	HfX2...O+VAC->O+HfX2_18072012
+
+pulse_time		0.0001 	0.0001 #T1    T3
+purge_time		0.0001 	0.0001 #T2    T4  and cycle = T1+T2+T3+T4
+
+
+
+# temperature in units of eV
+
+temperature	0.0475116
+
+# pressure in units of torr
+
+# s1 s2 s3 s4 s5 s6 s7 s8 s9 s10
+# s11 s12 s13 s14 s15 s16 s17 s18 s19 s20
+# s21 s22 s23 s24 s25 s26 s27 s28 s29 s30
+# s31 s32 s33 s34 s35 s36 s37 s38 s39 s40
+# s41 s42 s43 s44 s45 s46 s47 s48 s49 s50
+# s51 s52 s53 s54 s55 s56 s57 s58 s59 s60
+# d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 
+# d11 d12 d13 d14 d15 d16 d17 d18 d19 d20 
+# d21 d22 d23 d24 d25 d26 d27 d28 d29 d30
+# d31 d32 d33 d34 d35 d36 d37 d38 d39 d40
+# d41 d42 d43 d44 d45 d46 d47 d48 d49 d50
+# d51 d52 d53 d54 d55 d56 d57 d58 d59 d60
+# v1 v2 v3 v4 v5 v6 v7 v8 v9 v10
+# v11 v12 v13 v14 v15 v16 v17 v18 v19 v20
+
+#O OH HfX4O HfHX4O HfH2X4O HfH3X4O HfH4X4O HfX4OH HfHX4OH HfH2X4OH HfH3X4OH HfH4X4OH
+#O OH HfX3O HfHX3O HfH2X3O HfH3X3O HfX3OH HfHX3OH HfH2X3OH HfH3X3OH 
+#O OH HfX2O HfHX2O HfH2X2O HfX2OH HfHX2OH HfH2X2OH
+#O OH HfX2 HfHX2 HfH2X2
+#O OH HfHX HfX Hf 
+#O OH OH2Hf OHHfHX OH2HfHX OH2HfX OH2  
+
+diag_style      ald stats yes list events O OH HfHX HfX Hf 
+stats           .000005
+dump            1 text .0001 dump.ald  id i1 i2 x y z
+
+run             0.0080
